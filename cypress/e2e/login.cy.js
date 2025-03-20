@@ -2,7 +2,6 @@ module.exports = {
   projectId: "hp9zn2",
   // ...rest of the Cypress project config
 }
-
 /// <reference types="cypress" />
 
 //funcionalidade
