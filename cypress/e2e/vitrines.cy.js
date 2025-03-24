@@ -2,31 +2,27 @@
 
 describe("Vitrines - Criar Nova Categoria", () => {
     beforeEach(() => {
-
-        
-
+        // Acesse a URL e clique no botão de idioma
         cy.visit("https://www.hml.lector.live/testesautomatizados/subscribe/login");
-        // Seleção de idioma da tela inicial
-        cy.get('body').then(($body) => {
-            if ($body.find('.btn.round.main.icon-pointer-right').length > 0) {
-              cy.get('.btn.round.main.icon-pointer-right').click();
-            } else {
-              cy.log('O botão não está presente na página.');
-            }
-          });
-
-        // Login
-        cy.get('#login_username').type(Cypress.env('USERNAME'));
-        cy.get('#login_password').type(Cypress.env('PASSWORD'));
+        
+        // Clica no botão de idioma
+        cy.get('.language-selection2 > :nth-child(1) > .btn').click();
+        
+        // Realize o login
+        cy.get('#login_username').type("qualidade@lectortec.com.br");
+        cy.get('#login_password').type("123");
         cy.get('#btn-entrar').click();
     });
 
     it("Deve criar uma nova categoria com sucesso", () => {
-        cy.contains("Adicionar Categoria").click(); // Botão para adicionar categoria
-        cy.get("#category_name").type("Nova Categoria Teste"); // Campo de nome da categoria
-        cy.contains("Salvar").click(); // Botão de salvar
+        // Clique para adicionar nova categoria
+        cy.get('[title="Vitrines"] > .sideitem').click();
 
-        // Verificar se a categoria foi criada com sucesso
-        cy.contains("Nova Categoria Teste").should("be.visible");
+        cy.contains("Adicionar Categoria", { timeout: 10000 }).should('be.visible').click();
+        cy.get("#category_name").type("Nova Categoria Teste"); // Preenche o nome da categoria
+        cy.contains("Salvar").click(); // Salva a categoria
+
+        // Valida se a nova categoria foi criada
+        cy.contains("Nova Categoria Teste", { timeout: 10000 }).should("be.visible");
     });
 });
