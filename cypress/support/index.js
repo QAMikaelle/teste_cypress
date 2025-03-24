@@ -1,8 +1,8 @@
 Cypress.on('uncaught:exception', (err, runnable) => {
-  // Verifique se o erro contém a mensagem específica
-  if (err.message.includes("Cannot read properties of null")) {
-    return false; // Ignora apenas esse erro específico
+  // Verifica se o erro é referente a 'style'
+  if (err.message.includes("Cannot read properties of null (reading 'style')")) {
+    return false; // Ignora o erro
   }
-  // Permita que outros erros sejam processados
+  // Permite que outros erros sejam tratados normalmente
   return true;
 });
