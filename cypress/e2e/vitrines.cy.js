@@ -16,7 +16,7 @@ describe("Vitrines - Criar Nova Categoria", () => {
 
     it("Deve criar uma nova categoria com sucesso", () => {
         // Clique para adicionar nova categoria
-        cy.get('.sideitem [ui-sref="accessLink.content.showcases"]').click();
+        cy.get('[ui-sref="accessLink.content.showcases"]').click();
 
         cy.contains("Adicionar Categoria", { timeout: 10000 }).should('be.visible').click();
         cy.get("#category_name").type("Nova Categoria Teste"); // Preenche o nome da categoria
