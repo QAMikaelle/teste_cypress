@@ -19,12 +19,22 @@ describe("Botão - nova trilha", () => {
 
     it("Clicar no botão de Trilhas", () => {
         cy.wait(3000);
-        cy.get('[title="Trilhas"] > .sideitem').click();
+        cy.get('[title="Trilhas"]').click();
         
         // Espera um pouco após clicar em Trilhas
         cy.wait(1000);
         
         // Usa first() para garantir que apenas um botão seja clicado
-        cy.get('.title-bar > .icon-add')
+        cy.get('.title-bar').click();
+
+        // Edita os campos           
+        cy.wait(1000);
+        cy.get('[name=""]').type("Teste trilha");
+
+        cy.wait(1000);
+        cy.get('#cke_1_contents').type("Teste descrição");
+    
+
+    
     });
 });

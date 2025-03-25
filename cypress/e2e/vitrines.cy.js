@@ -17,14 +17,14 @@ describe("Vitrines - Criar Nova Categoria", () => {
         cy.get('#btn-entrar').click();
     });
 
-    it("Deve criar uma nova categoria com sucesso", () => {
+    it("Clicar no botão de vitrines", () => {
         cy.wait(3000);
-        cy.contains('Vitrines').click();
+        cy.get('[title="Vitrines"]').click();
         
         // Espera um pouco após clicar em Vitrines
         cy.wait(1000);
         
         // Usa first() para garantir que apenas um botão seja clicado
-        cy.get(':nth-child(14) > [data-layer="Padding"]', { timeout: 10000 }).click();
+        cy.get('.title-bar').click();
     });
 });
