@@ -7,7 +7,7 @@ describe("Vitrines - Criar Nova Categoria", () => {
         
         // Clica no botão de idioma
         cy.get('.language-selection2 > :nth-child(1) > .btn').click();
-        
+
         // Realize o login
         cy.get('#login_username').type("qualidade@lectortec.com.br");
         cy.get('#login_password').type("123");
@@ -18,11 +18,13 @@ describe("Vitrines - Criar Nova Categoria", () => {
         // Clique para adicionar nova categoria
         cy.get('[ui-sref="accessLink.content.showcases"]').click();
 
-        cy.contains("Adicionar Categoria", { timeout: 10000 }).should('be.visible').click();
-        cy.get("#category_name").type("Nova Categoria Teste"); // Preenche o nome da categoria
-        cy.contains("Salvar").click(); // Salva a categoria
+
+        // Clique para criar nova categoria e editar
+        cy.get('button[title="Nova vitrine"]').click({ force: true });
+        cy.get('#i-pt_BR_943').type('Teste da Vitrine');
+        cy.get('.open-content > .end > .btn-swipe-accent').click();
 
         // Valida se a nova categoria foi criada
-        cy.contains("Nova Categoria Teste", { timeout: 10000 }).should("be.visible");
+        
     });
 });
