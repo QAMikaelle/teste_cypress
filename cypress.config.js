@@ -1,16 +1,19 @@
 import { defineConfig } from "cypress";
 
-module.exports = {
+export default defineConfig({
+  projectId: 'hp9zn2',
   e2e: {
+    baseUrl: "https://www.hml.lector.live/testesautomatizados/subscribe/login", // Substitua pela URL base desejada
     setupNodeEvents(on, config) {
-      { "reporter"; "mochawesome", 
-        "reporterOptions"; 
-          { "reportDir"; "cypress/report/mochawesome-report", 
-           "overwrite"; false, 
-           "html"; true, 
-           "json"; false, 
-           "timestamp"; "mmddyyyy_HHMMss" }}
+      // Implementar os eventos de nó aqui, se necessário
     },
-  },
-  video: true
-};
+    // Configurações adicionais para o modo e2e
+    video: true, // Habilita a gravação do vídeo
+    videoCompression: 32, // Reduz a compressão do vídeo
+    videoUploadOnPasses: false, // Não faz upload de vídeos quando o teste passa
+    defaultCommandTimeout: 10000, // Tempo limite para comandos (10 segundos)
+    execTimeout: 120000, // Tempo limite de execução do teste (2 minutos)
+    pageLoadTimeout: 60000, // Tempo limite para o carregamento da página
+    waitForAnimations: true // Aguarda animações, se necessário
+  }
+});

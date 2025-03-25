@@ -15,7 +15,5 @@
     "cypress": "^14.2.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.51.1",
-    "@types/node": "^22.13.13"
-  }
+  "@types/node": "^22.13.13"}
 }
