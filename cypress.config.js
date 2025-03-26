@@ -4,9 +4,10 @@ export default defineConfig({
   projectId: 'hp9zn2',
   e2e: {
     baseUrl: "https://www.hml.lector.live/testesautomatizados/subscribe/login", // Substitua pela URL base desejada
-    setupNodeEvents(on, config) {
-      // Implementar os eventos de nó aqui, se necessário
-    },
+  
+
+    chromeWebSecurity: false, // Desabilita a segurança do Chrome, se necessário
+
     // Configurações adicionais para o modo e2e
     video: true, // Habilita a gravação do vídeo
     videoCompression: 32, // Reduz a compressão do vídeo

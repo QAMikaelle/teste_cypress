@@ -5,7 +5,7 @@ describe("Botão - nova trilha", () => {
         Cypress.on('uncaught:exception', (err, runnable) => {
             return false
           })
-             // Acesse a URL e clique no botão de idioma
+        // Acesse a URL e clique no botão de idioma
         cy.visit("https://www.hml.lector.live/testesautomatizados/subscribe/login");
         
         // Clica no botão de idioma
@@ -33,8 +33,6 @@ describe("Botão - nova trilha", () => {
 
         cy.wait(1000);
         cy.get('#cke_1_contents').type("Teste descrição");
-    
-
     
     });
 });
