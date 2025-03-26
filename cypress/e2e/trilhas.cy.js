@@ -21,6 +21,8 @@ describe("Botão - nova trilha", () => {
         //Adicionar documento
         cy.wait(3000);
         cy.get('[title="Documentos"]').click();
+        cy.get('.relative > .btn-icon').click();
+        
 
         //Criar treinamento
         cy.wait(3000);
@@ -39,9 +41,6 @@ describe("Botão - nova trilha", () => {
         // Edita os campos           
         cy.wait(1000);
         cy.get('[name=""]').type("Teste trilha");
-
-        cy.wait(1000);
-        cy.get('#cke_1_contents').type("Teste descrição");
     
     });
 });
