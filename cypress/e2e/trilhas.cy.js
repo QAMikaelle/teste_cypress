@@ -19,14 +19,22 @@ describe("Botão - nova trilha", () => {
     it("Criar trilha", () => {
 
         //Adicionar documento
-        cy.wait(3000);
         cy.get('[title="Documentos"]').click();
         cy.get('.relative > .btn-icon').click();
+        cy.get('[ng-click="modal.uploadFiles = true;"]').click();
+        
+        //cy.get('ng-transclude > .btn-swipe-accent').selectFile("Teste.pdf");
+        
+        //Botão de cancelar
+        cy.get('[switch="modal.uploadFiles"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-lgray').click();
         
 
         //Criar treinamento
-        cy.wait(3000);
         cy.get('[title="Treinamentos"]').click();
+        cy.get('.title-bar > .btn-icon').click();
+        cy.get('#courseName').type("Teste treinamento"); 
+        //cy.get('.title-bar').click();
+        //cy.get('#courseName > .dropdown > [aria-haspopup="true"]').type("Teste treinamento");
 
         //Criar trilha
         cy.wait(3000);
@@ -41,6 +49,6 @@ describe("Botão - nova trilha", () => {
         // Edita os campos           
         cy.wait(1000);
         cy.get('[name=""]').type("Teste trilha");
-    
+
     });
 });
