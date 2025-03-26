@@ -16,8 +16,17 @@ describe("Botão - nova trilha", () => {
         cy.get('#login_password').type("123");
         cy.get('#btn-entrar').click();
     });
+    it("Criar trilha", () => {
 
-    it("Clicar no botão de Trilhas", () => {
+        //Adicionar documento
+        cy.wait(3000);
+        cy.get('[title="Documentos"]').click();
+
+        //Criar treinamento
+        cy.wait(3000);
+        cy.get('[title="Treinamentos"]').click();
+
+        //Criar trilha
         cy.wait(3000);
         cy.get('[title="Trilhas"]').click();
         
