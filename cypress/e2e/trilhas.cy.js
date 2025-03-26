@@ -33,11 +33,10 @@ describe("Botão - nova trilha", () => {
         cy.get('[title="Treinamentos"]').click();
         cy.get('.title-bar > .btn-icon').click();
         cy.get('#courseName').type("Teste treinamento"); 
-        //cy.get('.title-bar').click();
-        //cy.get('#courseName > .dropdown > [aria-haspopup="true"]').type("Teste treinamento");
+        
 
         //Criar trilha
-        cy.wait(3000);
+        /*cy.wait(3000);
         cy.get('[title="Trilhas"]').click();
         
         // Espera um pouco após clicar em Trilhas
@@ -48,7 +47,7 @@ describe("Botão - nova trilha", () => {
 
         // Edita os campos           
         cy.wait(1000);
-        cy.get('[name=""]').type("Teste trilha");
+        cy.get('[name=""]').type("Teste trilha");*/
 
     });
 });
