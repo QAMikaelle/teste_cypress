@@ -32,8 +32,21 @@ describe("Botão - nova trilha", () => {
         //Criar treinamento
         cy.get('[title="Treinamentos"]').click();
         cy.get('.title-bar > .btn-icon').click();
+        //Editar dados
         cy.get('#courseName').type("Teste treinamento"); 
-        
+
+        //Adicionar conteúdos
+        cy.get('[ui-sref="accessLink.content.courses.edit.id.contents"]').click();
+        cy.get('.flex > .tab-active').click();
+        cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click();
+
+
+
+        //Selecionar versionamento
+        //cy.get('[ng-show="modal.useVersioning"] > .modal > :nth-child(3) > .checkbox > .icon-checkbox').click();
+        //cy.get('[ng-show="modal.useVersioning"] > .modal > .end > .ml-10').click();
+        //Salvar
+        //cy.get('.content-box-footer > .flex > .btn-swipe-accent').click();
 
         //Criar trilha
         /*cy.wait(3000);
