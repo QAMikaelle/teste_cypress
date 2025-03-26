@@ -36,9 +36,12 @@ describe("Botão - nova trilha", () => {
         cy.get('#courseName').type("Teste treinamento"); 
 
         //Adicionar conteúdos
-        cy.get('[ui-sref="accessLink.content.courses.edit.id.contents"]').click();
-        cy.get('.flex > .tab-active').click();
-        cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click();
+        cy.get('[ui-sref="accessLink.content.courses.edit.id.contents"]').click(); // sessão conteúdos
+        cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click(); //novo conteúdo
+        cy.get('.editing-resource > :nth-child(2) > .w-100').click(); //tipo
+        cy.get('.open > .ui-select-choices > :nth-child(2)').click(); //selecionar documentos
+        //cy.get('').type("/Teste_de_plataformas.pdf"); //selecionar arquivo - descobrir como fazer
+    
 
 
 
