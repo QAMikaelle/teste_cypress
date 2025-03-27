@@ -40,6 +40,8 @@ describe("Botão - nova trilha", () => {
         cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click(); //novo conteúdo
         cy.get('.editing-resource > :nth-child(2) > .w-100').click(); //tipo
         cy.get('.open > .ui-select-choices > :nth-child(2)').click(); //selecionar documentos
+        cy.get('.weight').type("1"); //peso
+        cy.get('.open > .ui-select-choices > :nth-child(2)').click(); //selecionar documento
         //cy.get('').type("/Teste_de_plataformas.pdf"); //selecionar arquivo - descobrir como fazer
     
 
