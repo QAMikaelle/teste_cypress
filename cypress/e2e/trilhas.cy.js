@@ -16,18 +16,7 @@ describe("Botão - nova trilha", () => {
         cy.get('#login_password').type("123");
         cy.get('#btn-entrar').click();
     });
-    it("Criar trilha", () => {
-
-        //Adicionar documento
-        cy.get('[title="Documentos"]').click();
-        cy.get('.relative > .btn-icon').click();
-        cy.get('[ng-click="modal.uploadFiles = true;"]').click();
-        
-        //cy.get('ng-transclude > .btn-swipe-accent').selectFile("Teste.pdf");
-        
-        //Botão de cancelar
-        cy.get('[switch="modal.uploadFiles"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-lgray').click();
-        
+    it("Criando um teste", () => {     
 
         //Criar treinamento
         cy.get('[title="Treinamentos"]').click();
@@ -40,18 +29,38 @@ describe("Botão - nova trilha", () => {
         cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click(); //novo conteúdo
         cy.get('.editing-resource > :nth-child(2) > .w-100').click(); //tipo
         cy.get('.open > .ui-select-choices > :nth-child(2)').click(); //selecionar documentos
-        cy.get('.weight').type("1"); //peso
-        cy.get('.open > .ui-select-choices > :nth-child(2)').click(); //selecionar documento
-        //cy.get('').type("/Teste_de_plataformas.pdf"); //selecionar arquivo - descobrir como fazer
-    
+        cy.get('.weight').type("1"); // selecionar peso
+        cy.get('.open > .ui-select-choices > :nth-child(2)').click(); //selecionar peso 1
+
+        // Clique no campo de busca para ativá-lo
+        cy.get('[ng-if="editingResource.type == \'DOCUMENT\' || editingResource.type == \'H5P_DOCUMENT\'"] > .ng-isolate-scope > .multiselect > .border > .ui-select-match > .btn-default').click();
+
+        // Digite o nome do documento no campo de busca
+        cy.get('[ng-if="editingResource.type == \'DOCUMENT\' || editingResource.type == \'H5P_DOCUMENT\'"] > .ng-isolate-scope > .multiselect > .border > .ui-select-match > .btn-default').type('Testes_de_plataformas');
+        //cy.get('').click(); //selecionar documento 
+        //cy.get('').click(); //selecionar documento
+        //cy.get('').click(); //salvar
+        cy.get('[ng-show="modal.useVersioning"] > .modal > :nth-child(3) > .checkbox > .icon-checkbox').click(); //selecionar versionamento
+        cy.get('[ng-show="modal.useVersioning"] > .modal > .end > .ml-10').click(); //salvar versionamento
+        cy.wait(1000);
+
+
+        //Adicionar documento
+        cy.get('[title="Documentos"]').click();
+        cy.get('.relative > .btn-icon').click();
+        cy.get('[ng-click="modal.uploadFiles = true;"]').click();
+                
+
+        //Botão de cancelar
+        cy.get('[switch="modal.uploadFiles"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-lgray').click();
+
+    it('should select the document', () => {
+            
+    })
 
 
 
-        //Selecionar versionamento
-        //cy.get('[ng-show="modal.useVersioning"] > .modal > :nth-child(3) > .checkbox > .icon-checkbox').click();
-        //cy.get('[ng-show="modal.useVersioning"] > .modal > .end > .ml-10').click();
-        //Salvar
-        //cy.get('.content-box-footer > .flex > .btn-swipe-accent').click();
+
 
         //Criar trilha
         /*cy.wait(3000);
