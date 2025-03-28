@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Botão - nova trilha", () => {
+describe("Teste - Login", () => {
     beforeEach(() => {
         Cypress.on('uncaught:exception', (err, runnable) => {
             return false
@@ -16,7 +16,21 @@ describe("Botão - nova trilha", () => {
         cy.get('#login_password').type("123");
         cy.get('#btn-entrar').click();
     });
-    it("Criando um teste", () => {     
+
+    it('Adicionando um documento', () => {
+
+        //Adicionar documento
+        cy.get('[title="Documentos"]').click();
+        cy.get('.relative > .btn-icon').click();
+        cy.get('[ng-click="modal.uploadFiles = true;"]').click();
+                
+
+        //Botão de cancelar
+        cy.get('[switch="modal.uploadFiles"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-lgray').click();
+            
+    });
+
+    it("Criando um treinamento", () => {     
 
         //Criar treinamento
         cy.get('[title="Treinamentos"]').click();
@@ -45,18 +59,9 @@ describe("Botão - nova trilha", () => {
         cy.wait(1000);
 
 
-        //Adicionar documento
-        cy.get('[title="Documentos"]').click();
-        cy.get('.relative > .btn-icon').click();
-        cy.get('[ng-click="modal.uploadFiles = true;"]').click();
-                
 
-        //Botão de cancelar
-        cy.get('[switch="modal.uploadFiles"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-lgray').click();
 
-    it('should select the document', () => {
-            
-    })
+
 
 
 
