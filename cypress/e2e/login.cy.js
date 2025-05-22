@@ -5,12 +5,16 @@ describe("login", () => {
       
       //cenarios
       it("E-mail inválido", () => {
-        cy.visit('https://www.hml.lector.live/testesautomatizados/subscribe/login');
-        cy.get('#login_username').type('kasokaosk');
-        cy.get('#login_password').type('123');
-        cy.get('#btn-entrar').contains("Entrar").click();
+        cy.visit('https://www.hml.lector.live/universolector/showcase/340');
+        cy.contains('button', 'Entrar').click();
+        cy.get('[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine').type('qualidade@lector');
+        cy.get('#login_password_navbar').type('123');
+        cy.get('.popup').contains('button', 'Entrar').click();
         cy.get('.message').should('have.text', 'Usuário ou senha inválidos'); 
     });
+
+
+    /*
 
       //cenarios
     it("Senha inválida", () => {
@@ -37,6 +41,6 @@ describe("login", () => {
 
     //ENTAO
     //entra
-  });
+  });*/
 
 });

@@ -4,16 +4,16 @@ describe("Teste - Login", () => {
     beforeEach(() => {
         Cypress.on('uncaught:exception', (err, runnable) => {
             return false
-          })
+        })
         // Acesse a URL e clique no botão de idioma
         cy.visit("https://www.hml.lector.live/testesautomatizados/subscribe/login");
-        
+
         // Clica no botão de idioma
         cy.get('.language-selection2 > :nth-child(1) > .btn').click();
 
         // Realize o login
-        cy.get('#login_username').type("qualidade@lectortec.com.br");
-        cy.get('#login_password').type("123");
+        cy.get('#E-mail ou nome').should('not.be.hidden').click();
+        cy.get('#viewable-password').type("123");
         cy.get('#btn-entrar').click();
     });
 
@@ -23,20 +23,22 @@ describe("Teste - Login", () => {
         cy.get('[title="Documentos"]').click();
         cy.get('.relative > .btn-icon').click();
         cy.get('[ng-click="modal.uploadFiles = true;"]').click();
-                
+
 
         //Botão de cancelar
         cy.get('[switch="modal.uploadFiles"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-lgray').click();
-            
+        cy.wait(1000);
+
     });
 
-    it("Criando um treinamento", () => {     
+    it("Criando um treinamento", () => {
 
         //Criar treinamento
         cy.get('[title="Treinamentos"]').click();
         cy.get('.title-bar > .btn-icon').click();
+
         //Editar dados
-        cy.get('#courseName').type("Teste treinamento"); 
+        cy.get('#courseName').type("Teste treinamento");
 
         //Adicionar conteúdos
         cy.get('[ui-sref="accessLink.content.courses.edit.id.contents"]').click(); // sessão conteúdos
@@ -58,28 +60,28 @@ describe("Teste - Login", () => {
         cy.get('[ng-show="modal.useVersioning"] > .modal > .end > .ml-10').click(); //salvar versionamento
         cy.wait(1000);
 
+    });
 
-
-
-
-
-
-
-
+    it.only("Criando uma trilha", () => {
 
         //Criar trilha
-        /*cy.wait(3000);
+        cy.wait(3000);
         cy.get('[title="Trilhas"]').click();
-        
-        // Espera um pouco após clicar em Trilhas
-        cy.wait(1000);
-        
-        // Usa first() para garantir que apenas um botão seja clicado
-        cy.get('.title-bar').click();
+        cy.get('.title-bar > .btn-icon').click(); //botão de criar trilha
 
         // Edita os campos           
         cy.wait(1000);
-        cy.get('[name=""]').type("Teste trilha");*/
+        cy.get('#i-pt_BR_918').type("Teste trilha"); //nome da trilha
+        cy.get('.content-box-footer > .flex > .btn-swipe-accent').click(); //botão de salvar
+        cy.get('.pt-20 > .flex > .btn-swipe-accent').click(); // nova etapa
+        cy.get('[colspan="6"] > .btn-swipe-accent').click(); // novo conteúdo
+        //cy.get('[model="currentContent.course"] > .multiselect > .border > .ui-select-search').type('teste treinamento'); //campo de busca
+        cy.get('.input-number > div > .icon-pointer-up').click(); //peso 1
+        
+
+
 
     });
+
+
 });
