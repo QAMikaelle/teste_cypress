@@ -14,7 +14,7 @@ describe("Teste - Login", () => {
 });
 
   context("Treinamento sem aprovação gestor na turma", () => {
-    it("Adicionando um documento", () => {
+    it.only("Adicionando um documento", () => {
       //Adicionar documento
       cy.get('[title="Documentos"]').click(); // clicar na aba de documentos
       cy.get(".relative > .btn-icon").click(); //botão de criar documento
