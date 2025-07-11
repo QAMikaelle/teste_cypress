@@ -91,7 +91,7 @@ describe("Teste - Login", () => {
 
       //Editar dados
       cy.get("#courseName").click(); // Clica pra digitar
-      cy.get("#courseName").type("Teste treinamento 10/07/2025 4 com aprovação");
+      cy.get("#courseName").type("Teste treinamento 10/07/2025 3 com aprovação");
 
       cy.wait(20000); // Espera para o modal abrir
       
@@ -147,11 +147,12 @@ describe("Teste - Login", () => {
       //adicionar aula presencial
       cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click(); //novo conteúdo
       cy.get(".editing-resource > :nth-child(2) > .w-100").click(); //tipo
-      cy.get('.open > .ui-select-choices > :nth-child(4) > .ng-binding').click(); //selecionar aula presencial
+      cy.get('.open > .ui-select-choices > :nth-child(3)').click(); //selecionar aula presencial   < ---------------
       cy.wait(10000); //espera para digitar o nome da gravação
       cy.get(".weight").type("1"); // selecionar peso
       cy.get(".open > .ui-select-choices > :nth-child(2)").click(); //selecionar peso 1
       cy.get(".editing-resource > .end > .btn-swipe-accent").click(); //adicionar aula presencial
+
 
       //Adicionar turma
       cy.get('[ui-sref="accessLink.content.courses.edit.id.classes"]').click(); // sessão turma
@@ -159,10 +160,20 @@ describe("Teste - Login", () => {
       cy.get("#className").type("Teste turma"); //nome da turma
       cy.get('.price-box-container > :nth-child(2) > .price-box > .checkbox').click(); // ativar checkbox de preço
 
+         //< --------------- adicionar como colocar o preço e verificar os conteúdos abaixo se tá tudo certo
+
+
       //Salvar treinamento
+      /*cy.get('[ui-sref="accessLink.content.courses.edit.id.contents"]').click(); // sessão conteúdos
       cy.get(".content-box-footer > .flex > .btn-swipe-accent").click(); //botão de salvar
       cy.get('[ng-show="modal.useVersioning"] > .modal > :nth-child(3) > .checkbox > .icon-checkbox').click(); //selecionar versionamento
       cy.get('[ng-show="modal.useVersioning"] > .modal > .end > .ml-10').click(); //salvar versionamento
+
+      cy.get('.ng-submitted > .ng-valid').type("Teste treinamento 10/07/2025 com aprovação"); // Digitar nome do treinamento
+      cy.get('.ng-submitted > .btn').click(); // Botão de procurar treinamento
+      cy.get('.card-items').contains("Teste treinamento 10/07/2025 com aprovação").click(); // Clicar no treinamento criado
+      cy.wait(10000); // Espera para o modal abrir
+      cy.get('.end.ng-scope > .icon-edit').click(); // Clicar no botão de editar treinamento*/
 
 
   context("Treinamento extra", () => {

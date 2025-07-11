@@ -1,4 +1,7 @@
 /// <reference types="cypress" />
+
+const { type } = require("os");
+
 describe("Teste - Login", () => {
   beforeEach(() => {
     cy.viewport(1920, 1080); // Define a dimensão da tela para o teste.
@@ -12,20 +15,14 @@ describe("Teste - Login", () => {
 
   context("Treinamento sem aprovação gestor na turma", () => {
     it("Adicionando um documento", () => {
-      //Criar pasta   TESTE PARA TREINAMENTO INTEIRO
+      //Adicionar documento
       cy.get('[title="Documentos"]').click(); // clicar na aba de documentos
       cy.get(".relative > .btn-icon").click(); //botão de criar documento
-      cy.get('[ng-click="showCreateNewFolder();"]').click(); // Botão de criar nova pasta
-      cy.get('.ng-pristine.ng-scope > .border').type("Pasta de Teste 10.07.2025"); // Digitar nome da pasta
-      cy.get('[switch="modal.createFolder"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-accent').click(); // Salvar pasta
-
-      //Teste pra adicionar documento na pasta criada
-      cy.get('.multiselect.ng-pristine > .ng-pristine').type("Pasta de Teste 10.07.2025"); // Digitar nome da pasta
-      cy.get('.multiselect.ng-dirty > .btn').click(); // Botão de pesquisar pasta
-      cy.wait(10000); // Espera para o modal abrir
-      cy.get(".relative > .btn-icon").click(); //botão de criar documento
       cy.get('[ng-click="modal.uploadFiles = true;"]').click(); //botão de upload
-      cy.wait(10000); // Espera para o modal abrir
+
+      //Botão de cancelar
+      cy.get('[switch="modal.uploadFiles"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-lgray').click();
+      cy.wait(1000);
         });
 
     it("Criando um treinamento", () => {
@@ -63,23 +60,18 @@ describe("Teste - Login", () => {
     
   context("Treinamento com aprovação gestor na turma", () => {
     it("Adicionando um documento", () => {
-      //Criar pasta   TESTE PARA TREINAMENTO INTEIRO
+      //Adicionar documento
+      cy.wait(1000);
       cy.get('[title="Documentos"]').click(); // clicar na aba de documentos
       cy.get(".relative > .btn-icon").click(); //botão de criar documento
-      cy.get('[ng-click="showCreateNewFolder();"]').click(); // Botão de criar nova pasta
-      cy.get('.ng-pristine.ng-scope > .border').type("Pasta de Teste 10.07.2025"); // Digitar nome da pasta
-      cy.get('[switch="modal.createFolder"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-accent').click(); // Salvar pasta
-
-      //Teste pra adicionar documento na pasta criada
-      cy.get('.multiselect.ng-pristine > .ng-pristine').type("Pasta de Teste 10.07.2025"); // Digitar nome da pasta
-      cy.get('.multiselect.ng-dirty > .btn').click(); // Botão de pesquisar pasta
-      cy.wait(10000); // Espera para o modal abrir
-      cy.get(".relative > .btn-icon").click(); //botão de criar documento
       cy.get('[ng-click="modal.uploadFiles = true;"]').click(); //botão de upload
-      cy.wait(10000); // Espera para o modal abrir
+
+      //Botão de cancelar
+      cy.get('[switch="modal.uploadFiles"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-lgray').click();
+      cy.wait(1000);
         });
 
-    it("Criando um treinamento", () => {
+    it.only("Criando um treinamento", () => {
       //Criar treinamento sem aprovação do gestor na turma
       cy.wait(1000);
       cy.get('[title="Treinamentos"]').click();

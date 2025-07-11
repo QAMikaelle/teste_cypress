@@ -91,7 +91,7 @@ describe("Teste - Login", () => {
 
       //Editar dados
       cy.get("#courseName").click(); // Clica pra digitar
-      cy.get("#courseName").type("Teste treinamento 10/07/2025 4 com aprovação");
+      cy.get("#courseName").type("Teste treinamento 10/07/2025 3 com aprovação");
 
       cy.wait(20000); // Espera para o modal abrir
       

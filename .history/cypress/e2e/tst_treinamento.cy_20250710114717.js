@@ -91,34 +91,26 @@ describe("Teste - Login", () => {
 
       //Editar dados
       cy.get("#courseName").click(); // Clica pra digitar
-      cy.get("#courseName").type("Teste treinamento 10/07/2025 4 com aprovação");
+      cy.get("#courseName").type("Teste treinamento 10/07/2025 com aprovação");
 
+      cy.get('.thumb-placeholder').click(); // Clica no campo de imagem
       cy.wait(20000); // Espera para o modal abrir
+
+      cy.get('.cke_editable[contenteditable=true]')
+      .should('be.visible')
+      .click()
+      .type('Texto digitado');
+
       
       cy.get('[timeload=""] > .checkbox > .icon-checkbox').click(); // marcar checkbox para calcular automaticamente carga horária dos conteúdos
       cy.get('[min-grade=""] > .input-number > div > .icon-pointer-up').dblclick(); // aumentar aproveitamento mínimo
       cy.get('[min-finish-progress=""] > .input-number > div > .icon-pointer-up').dblclick(); // aumentar progresso mínimo
-
-      cy.get('[max-subscriptions=""] > .checkbox > .icon-checkbox').click(); // marcar checkbox para limitar número de matrículas
-      cy.get('[min-finish-progress=""] > .input-number > div > .icon-pointer-up').dblclick(); // aumentar limite de matrículas
-
       cy.get('.mb-20 > .checkbox > .icon-checkbox').click(); // Aciona gamificação
-      cy.get('[mail-interested=""] > .checkbox > .icon-checkbox').click(); // marcar checkbox para enviar e-mail de interesse
-      cy.get('[accessibility=""] > .checkbox > .icon-checkbox').click(); // marcar checkbox para habilitar acessibilidade
-      cy.get('[hide-res-perf=""] > .checkbox > .icon-checkbox').click(); // marcar checkbox para ocultar resultados de desempenho
-      cy.get('[terms-of-use=""] > .checkbox > .icon-checkbox').click(); // habilitar termos de aceite
-      cy.wait(3000); // DIGITAR MANUALMENTE O TERMO DE ACEITE
 
-      //Autores
-      cy.get('[ui-sref="accessLink.content.courses.edit.id.authors"]').click(); // sessão autores
-      cy.get('[authors=""] > .ng-isolate-scope > .multiselect > .border > :nth-child(1) > .ui-select-search').type('mik'); // Digitar nome do autor
-      cy.wait(3000); // Espera para o modal abrir
 
       //Adicionar conteúdos
       cy.get('[ui-sref="accessLink.content.courses.edit.id.contents"]').click(); // sessão conteúdos
       cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click(); //novo conteúdo
-
-      //adicionar documento
       cy.get(".editing-resource > :nth-child(2) > .w-100").click(); //tipo
       cy.get(".open > .ui-select-choices > :nth-child(2)").click(); //selecionar documentos como tipo de conteúdo
       cy.wait(10000); //espera para digitar o nome do documento
@@ -126,44 +118,17 @@ describe("Teste - Login", () => {
       cy.get(".open > .ui-select-choices > :nth-child(2)").click(); //selecionar peso 1
       cy.get(".editing-resource > .end > .btn-swipe-accent").click(); //adicionar documento
 
-      //adicionar gravação
-      cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click(); //novo conteúdo
-      cy.get(".editing-resource > :nth-child(2) > .w-100").click(); //tipo
-      cy.get('.open > .ui-select-choices > :nth-child(1)').click(); //selecionar gravação
-      cy.wait(10000); //espera para digitar o nome da gravação
-      cy.get(".weight").type("1"); // selecionar peso
-      cy.get(".open > .ui-select-choices > :nth-child(2)").click(); //selecionar peso 1
-      cy.get(".editing-resource > .end > .btn-swipe-accent").click(); //adicionar gravação
-
-      //adicionar avaliação
-      cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click(); //novo conteúdo
-      cy.get(".editing-resource > :nth-child(2) > .w-100").click(); //tipo
-      cy.get('.open > .ui-select-choices > :nth-child(3)').click(); //selecionar avaliação
-      cy.wait(10000); //espera para digitar o nome da gravação
-      cy.get(".weight").type("1"); // selecionar peso
-      cy.get(".open > .ui-select-choices > :nth-child(2)").click(); //selecionar peso 1
-      cy.get(".editing-resource > .end > .btn-swipe-accent").click(); //adicionar avaliação
-
-      //adicionar aula presencial
-      cy.get('ui-view.ng-scope > .flex > .btn-swipe-accent').click(); //novo conteúdo
-      cy.get(".editing-resource > :nth-child(2) > .w-100").click(); //tipo
-      cy.get('.open > .ui-select-choices > :nth-child(4) > .ng-binding').click(); //selecionar aula presencial
-      cy.wait(10000); //espera para digitar o nome da gravação
-      cy.get(".weight").type("1"); // selecionar peso
-      cy.get(".open > .ui-select-choices > :nth-child(2)").click(); //selecionar peso 1
-      cy.get(".editing-resource > .end > .btn-swipe-accent").click(); //adicionar aula presencial
-
       //Adicionar turma
       cy.get('[ui-sref="accessLink.content.courses.edit.id.classes"]').click(); // sessão turma
       cy.get('[ng-click="editClass()"]').click(); //botão de adicionar turma
       cy.get("#className").type("Teste turma"); //nome da turma
-      cy.get('.price-box-container > :nth-child(2) > .price-box > .checkbox').click(); // ativar checkbox de preço
+      cy.get(".add-content > .end > .btn-swipe-accent").click(); //botão de adicionar turma
 
       //Salvar treinamento
+      cy.get('[ui-sref="accessLink.content.courses.edit.id.contents"]').click(); // sessão conteúdos
       cy.get(".content-box-footer > .flex > .btn-swipe-accent").click(); //botão de salvar
       cy.get('[ng-show="modal.useVersioning"] > .modal > :nth-child(3) > .checkbox > .icon-checkbox').click(); //selecionar versionamento
       cy.get('[ng-show="modal.useVersioning"] > .modal > .end > .ml-10').click(); //salvar versionamento
-
 
   context("Treinamento extra", () => {
   });
