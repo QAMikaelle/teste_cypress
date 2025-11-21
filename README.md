@@ -60,14 +60,14 @@ Para executar este projeto, você precisará de:
   yarn install
 ```
 ## Estrutura do Projeto
-cypress/
-│
-├── e2e/
-│   ├── login.cy.js               # Testes de Login
-│   ├── testedetreinamento.cy.js  # Criação básica de cursos e pastas
-│   ├── testedetrilha.cy.js       # Fluxos de criação de Trilhas
-│   ├── tst_treinamento.cy.js     # Cenários complexos (Gamificação, Acessibilidade, etc.)
-│   └── vitrines.cy.js            # Testes de navegação na Vitrine
-│
-├── fixtures/                     # Massas de dados (se houver)
-└── support/                      # Comandos customizados e configurações
+
+## 📂 Estrutura do Projeto
+
+```text
+/
+├── login.cy.js               # Testes de Login
+├── testedetreinamento.cy.js  # Criação básica de cursos e pastas
+├── testedetrilha.cy.js       # Fluxos de criação de Trilhas
+├── tst_treinamento.cy.js     # Cenários complexos (Gamificação, Acessibilidade)
+├── vitrines.cy.js            # Testes de navegação na Vitrine
+└── README.md                 # Documentação
