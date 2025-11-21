@@ -61,8 +61,6 @@ Para executar este projeto, você precisará de:
 ```
 ## Estrutura do Projeto
 
-## 📂 Estrutura do Projeto
-
 ```text
 /
 ├── login.cy.js               # Testes de Login
