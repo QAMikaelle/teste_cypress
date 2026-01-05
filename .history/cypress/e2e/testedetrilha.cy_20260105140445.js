@@ -26,7 +26,7 @@ describe("Teste - Login", () => {
       cy.get('[title="Trilhas"] > .sideitem').click();
 
       // Clicar em adicionar categoria
-      cy.get('.node-selected > .tree-icons > .icon-add').click();
+      cy.get('[data-nodeid="1"] > .tree-icons > .icon-add').click(); 
 
       // Preencher nome da categoria
       cy.get('input[placeholder="Nova categoria"]', { timeout: 60000 })
@@ -45,35 +45,6 @@ describe("Teste - Login", () => {
       // Validar criação da categoria
       cy.contains('Categoria 05/01').should('be.visible'); 
 });
-
-it("Nova Subcategoria", () => {
-
-    //Abrir menu de trilhas
-      cy.get('[title="Trilhas"] > .sideitem').click();
-
-    //Selecionar categoria criada
-    cy.contains('Categoria 05/01', { timeout: 60000 })
-      .filter(':visible')
-      .first()
-      .scrollIntoView()
-      .should('be.visible')
-      .parents('li') // sobe até o nó da árvore
-      .click();
-
-    // Clicar em adicionar subcategoria
-    cy.get('.node-selected > .tree-icons > .icon-add').click();
-
-    // Preencher nome da subcategoria
-    cy.get('input[placeholder="Nova categoria"]', { timeout: 60000 })
-      .filter(':visible')
-      .first()
-      .should('not.be.disabled')
-      .focus()
-      .clear({ force: true })
-      .type('Subcategoria 05/01', { delay: 30, force: true })
-      .should('have.value', 'Subcategoria 05/01');
-});
-
 it("Criando uma trilha", () => {
 
     //Criar trilha

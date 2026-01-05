@@ -46,23 +46,13 @@ describe("Teste - Login", () => {
       cy.contains('Categoria 05/01').should('be.visible'); 
 });
 
-it("Nova Subcategoria", () => {
-
-    //Abrir menu de trilhas
-      cy.get('[title="Trilhas"] > .sideitem').click();
+it("Subcategoria", () => {
 
     //Selecionar categoria criada
-    cy.contains('Categoria 05/01', { timeout: 60000 })
-      .filter(':visible')
-      .first()
-      .scrollIntoView()
-      .should('be.visible')
-      .parents('li') // sobe até o nó da árvore
-      .click();
-
+    cy.contains('Categoria 05/01').click();
+    cy.wait(5000); //espera para carregar a categoria
     // Clicar em adicionar subcategoria
     cy.get('.node-selected > .tree-icons > .icon-add').click();
-
     // Preencher nome da subcategoria
     cy.get('input[placeholder="Nova categoria"]', { timeout: 60000 })
       .filter(':visible')

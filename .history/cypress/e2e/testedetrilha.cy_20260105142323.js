@@ -53,12 +53,12 @@ it("Nova Subcategoria", () => {
 
     //Selecionar categoria criada
     cy.contains('Categoria 05/01', { timeout: 60000 })
-      .filter(':visible')
-      .first()
-      .scrollIntoView()
-      .should('be.visible')
-      .parents('li') // sobe até o nó da árvore
-      .click();
+  .filter(':visible')
+  .first()
+  .scrollIntoView()
+  .should('be.visible')
+  .parents('li') // sobe até o nó da árvore
+  .click();
 
     // Clicar em adicionar subcategoria
     cy.get('.node-selected > .tree-icons > .icon-add').click();
