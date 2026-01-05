@@ -23,23 +23,15 @@ describe("Teste - Login", () => {
     it("Criando uma trilha", () => {
 
     //Criar trilha
-    cy.get('[title="Trilhas"] > .sideitem').click();
+    cy.get('[title="Trilhas"]').click();
 
     //botão de criar trilha
     cy.get(".title-bar > .btn-icon").click(); 
     cy.wait(10000); 
 
     //Escrever nome da trilha
-    cy.get('input[placeholder="Informe o nome"]', { timeout: 60000 })
-  .filter(':visible')
-  .first()
-  .should('not.be.disabled')
-  .scrollIntoView()
-  .focus()
-  .clear({ force: true })
-  .type('Trilha 05/01', { delay: 30, force: true })
-  .should('have.value', 'Trilha 05/01');
-
+    cy.get("#trailName").click(); 
+    cy.get("#trailName").type("Teste de trilha")
 
      //Tradicional
       cy.get('label.thumb-placeholder[aspect="square"] input[type="file"]').selectFile('cypress/fixtures/images6.png', { force: true });

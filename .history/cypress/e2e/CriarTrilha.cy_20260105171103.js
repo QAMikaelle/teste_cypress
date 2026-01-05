@@ -23,7 +23,7 @@ describe("Teste - Login", () => {
     it("Criando uma trilha", () => {
 
     //Criar trilha
-    cy.get('[title="Trilhas"] > .sideitem').click();
+    cy.get('[title="Trilhas"]').click();
 
     //botão de criar trilha
     cy.get(".title-bar > .btn-icon").click(); 

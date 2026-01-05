@@ -13,16 +13,15 @@ describe("Teste - Login", () => {
     cy.contains("button", "Entrar").click();
 
     //Faz login
-    cy.get('[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine').type("mika@uorak.com");
-    cy.get("#login_password_navbar").type("QF7zTSBY06dAoyP");
+    cy.get('[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine').type("qualidade@lectortec.com.br");
+    cy.get("#login_password_navbar").type("c8d593QGXOkjRjC");
     cy.get(".popup").contains("button", "Entrar").click();
 });
 
     context("Assistir todos os conteúdos de uma trilha", () => {
-    it("Inscrição em uma trilha", () => {
-
+    it("Deve assistir todos os conteúdos de uma trilha", () => {
       //Acessa a trilha desejada
-    cy.get('body').click();
+    cy.contains("a", "Trilha de Testes Automatizados").click();
 
     });
 });
