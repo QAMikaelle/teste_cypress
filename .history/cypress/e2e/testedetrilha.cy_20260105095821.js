@@ -4,7 +4,9 @@ describe("Teste - Treinamentos", () => {
   beforeEach(() => {
     cy.visit("https://www.hml.lector.live/lector_suporte/showcase/2257");
     cy.contains("button", "Entrar").click();
-    cy.get('[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine').type("qualidade@lectortec.com.br");
+    cy.get(
+      '[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine'
+    ).type("qualidade@lectortec.com.br");
     cy.get("#login_password_navbar").type("c8d593QGXOkjRjC");
     cy.get(".popup").contains("button", "Entrar").click();
   });
@@ -14,10 +16,7 @@ describe("Teste - Treinamentos", () => {
     //Criar categoria
     cy.get('[title="Trilhas"]').click();
     cy.get('[data-nodeid="1"] > .tree-icons > .icon-add').click(); // Clicar em adicionar categoria
-    cy.get('input[placeholder="Nova categoria"]')
-  .should('be.visible')
-  .clear()
-  .type('Categoria Automação'); // Preencher nome da categoria
+    cy.get('input[name="name"]').should('be.visible').type('Categoria Automação'); // Preencher nome da categoria
     cy.contains('button', 'Salvar').click(); // Salvar
     cy.contains('Categoria Automação').should('be.visible'); // Validar criação
 
