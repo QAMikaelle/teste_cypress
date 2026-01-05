@@ -16,11 +16,11 @@ describe("Teste - Login", () => {
       cy.get('[title="Documentos"]').click(); // clicar na aba de documentos
       cy.get(".relative > .btn-icon").click(); //botão de criar documento
       cy.get('[ng-click="showCreateNewFolder();"]').click(); // Botão de criar nova pasta
-      cy.get('.ng-pristine.ng-scope > .border').type("Pasta de Teste 03.10.2025"); // Digitar nome da pasta
+      cy.get('.ng-pristine.ng-scope > .border').type("Pasta de Teste 09.09.2025"); // Digitar nome da pasta
       cy.get('[switch="modal.createFolder"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-accent').click(); // Salvar pasta
 
       //Teste pra adicionar documento na pasta criada
-      cy.get('.multiselect.ng-pristine > .ng-pristine').type("Pasta de Teste 03.10.2025"); // Digitar nome da pasta
+      cy.get('.multiselect.ng-pristine > .ng-pristine').type("Pasta de Teste 09.09.2025"); // Digitar nome da pasta
       cy.get('.multiselect.ng-dirty > .btn').click(); // Botão de pesquisar pasta
       cy.wait(10000); // Espera para o modal abrir
       cy.get(".relative > .btn-icon").click(); //botão de criar documento
@@ -35,7 +35,7 @@ describe("Teste - Login", () => {
 
       //Editar dados
       cy.get("#courseName").click(); // Clica pra digitar
-      cy.get("#courseName").type("Teste treinamento 03.10.2025 sem aprovação");
+      cy.get("#courseName").type("Teste treinamento 09/09/2025 sem aprovação");
       cy.get('[timeload=""] > .checkbox > .icon-checkbox').click(); // marcar checkbox para calcular automaticamente carga horária dos conteúdos
       cy.get('[min-grade=""] > .input-number > div > .icon-pointer-up').dblclick(); // aumentar aproveitamento mínimo
       cy.get('[min-finish-progress=""] > .input-number > div > .icon-pointer-up').dblclick(); // aumentar progresso mínimo
@@ -71,11 +71,11 @@ describe("Teste - Login", () => {
       cy.get('[title="Documentos"]').click(); // clicar na aba de documentos
       cy.get(".relative > .btn-icon").click(); //botão de criar documento
       cy.get('[ng-click="showCreateNewFolder();"]').click(); // Botão de criar nova pasta
-      cy.get('.ng-pristine.ng-scope > .border').type("Pasta de Teste 03.10.2025 II"); // Digitar nome da pasta
+      cy.get('.ng-pristine.ng-scope > .border').type("Pasta de Teste 09.09.2025 II"); // Digitar nome da pasta
       cy.get('[switch="modal.createFolder"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-accent').click(); // Salvar pasta
 
       //Teste pra adicionar documento na pasta criada
-      cy.get('.multiselect.ng-pristine > .ng-pristine').type("Pasta de Teste 03.10.2025"); // Digitar nome da pasta
+      cy.get('.multiselect.ng-pristine > .ng-pristine').type("Pasta de Teste 09.09.2025"); // Digitar nome da pasta
       cy.get('.multiselect.ng-dirty > .btn').click(); // Botão de pesquisar pasta
       cy.wait(10000); // Espera para o modal abrir
       cy.get(".relative > .btn-icon").click(); //botão de criar documento
@@ -91,7 +91,7 @@ describe("Teste - Login", () => {
 
       //Editar dados
       cy.get("#courseName").click(); // Clica pra digitar
-      cy.get("#courseName").type("Teste treinamento 03.10.2025 4 com aprovação");
+      cy.get("#courseName").type("Teste treinamento 09/09/2025 4 com aprovação");
 
       cy.wait(20000); // Espera para o modal abrir
       

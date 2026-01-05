@@ -16,7 +16,7 @@ describe("Teste - Login", () => {
       cy.get('[title="Documentos"]').click(); // clicar na aba de documentos
       cy.get(".relative > .btn-icon").click(); //botão de criar documento
       cy.get('[ng-click="showCreateNewFolder();"]').click(); // Botão de criar nova pasta
-      cy.get('.ng-pristine.ng-scope > .border').type("Pasta de Teste 03.10.2025"); // Digitar nome da pasta
+      cy.get('.ng-pristine.ng-scope > .border').type("Pasta de Teste 09.09.2025"); // Digitar nome da pasta
       cy.get('[switch="modal.createFolder"] > .modal > :nth-child(2) > .end > .flex > .btn-swipe-accent').click(); // Salvar pasta
 
       //Teste pra adicionar documento na pasta criada
