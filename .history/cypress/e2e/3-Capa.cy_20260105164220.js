@@ -30,15 +30,7 @@ describe("Teste - Login", () => {
       cy.contains("li.list-group-item", "Categoria 05/01").click({ force: true });
 
       //Editando Nome da trilha e o Idioma
-      cy.get('.icon-edit', { timeout: 60000 })
-        .filter(':visible')
-        .first()
-        .parents('button, span, a, div')
-        .first()
-        .should('be.visible')
-        .click({ force: true });
-
-
+      cy.get('.btn-transparent > .icon-edit').click();
       cy.get("#courseName").click(); // Clica pra digitar
       cy.get("#courseName").type("Teste de capas"); //  Nome no Treinamento
 

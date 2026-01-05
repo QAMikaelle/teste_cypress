@@ -20,25 +20,16 @@ describe("Teste - Login", () => {
 
   context("Teste de capa", () => {
     it("Capa/Baner/Tradicional", () => {
-
-      // Clicando na aba Trilhas
+      // Clicando na aba Treinamento
       cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
         .should("be.visible")
         .click();
 
-      //Clica na categoria 05/01
-      cy.contains("li.list-group-item", "Categoria 05/01").click({ force: true });
+      //Clica na categoria Automação
+      cy.contains("li.list-group-item", "0Teste Capas").click({ force: true });
 
-      //Editando Nome da trilha e o Idioma
-      cy.get('.icon-edit', { timeout: 60000 })
-        .filter(':visible')
-        .first()
-        .parents('button, span, a, div')
-        .first()
-        .should('be.visible')
-        .click({ force: true });
-
-
+      //Editando Nome do treinamento e o Idioma
+      cy.get(".title-bar > .btn-icon").click();
       cy.get("#courseName").click(); // Clica pra digitar
       cy.get("#courseName").type("Teste de capas"); //  Nome no Treinamento
 

@@ -19,7 +19,7 @@ describe("Teste - Login", () => {
   });
 
   context("Teste de capa", () => {
-    it("Capa/Baner/Tradicional", () => {
+    it.only("Capa/Baner/Tradicional", () => {
 
       // Clicando na aba Trilhas
       cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
@@ -30,10 +30,11 @@ describe("Teste - Login", () => {
       cy.contains("li.list-group-item", "Categoria 05/01").click({ force: true });
 
       //Editando Nome da trilha e o Idioma
-      cy.get('.icon-edit', { timeout: 60000 })
+      cy.contains('Nome do item')
+        .parents('li') // ou .parents('.classe-do-card')
+        .within(() => {
+      cy.get('.icon-edit')
         .filter(':visible')
-        .first()
-        .parents('button, span, a, div')
         .first()
         .should('be.visible')
         .click({ force: true });
