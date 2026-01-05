@@ -23,7 +23,7 @@ describe("Teste - Login", () => {
     
     it("Pesquisar Trilhas", () => {
 
-        // Clicando na aba Trilhas
+        // Clicando na aba Treinamento
         cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
             .should('be.visible')
             .click();
@@ -41,15 +41,16 @@ describe("Teste - Login", () => {
 
     it("Filtro Ordenação AZ/ZA", () => {
 
-        // Clicando na aba Trilhas
+        // Clicando na aba Treinamento
         cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
             .should('be.visible')
             .click();
         
-        //Clica em nome Z/A
+        //Clica em nome A/Z
         cy.get('[ng-model="$parent.order"]').click()
         cy.wait(1000)
         
+        //Z á A
         cy.get('.open > .ui-select-choices > :nth-child(2)', { timeout: 60000 })
             .should('be.visible')
             .click({ force: true });
@@ -59,18 +60,15 @@ describe("Teste - Login", () => {
         cy.get('[ng-model="$parent.order"]').click()
         cy.wait(1000)
 
+        //A á Z
         cy.get('.open > .ui-select-choices > :nth-child(1)', { timeout: 60000 })
             .should('be.visible')
             .click({ force: true });
 
     });
-    it("Filtro Mais Recente/Mais Antigo", () => {
-
-        // Clicando na aba Trilhas
-        cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
-            .should('be.visible')
-            .click();
-
+    it("Filtro Mais Recente/Mias Antigo", () => {
+        
+        //Clica em nome A/Z
         cy.get('[ng-model="$parent.order"]').click()
         cy.wait(1000)
         
@@ -80,6 +78,7 @@ describe("Teste - Login", () => {
             .click({ force: true });
         cy.wait(3000)
 
+        //Clica em nome A/z
         cy.get('[ng-model="$parent.order"]').click()
         cy.wait(1000)
 

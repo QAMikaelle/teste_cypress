@@ -24,7 +24,7 @@ describe("Teste - Login", () => {
     it("Inserindo Capa/Baner/Tradicional", () => {
 
         // Clicando na aba Treinamento
-      cy.get('[title="Treinamentos"] > .sideitem', { timeout: 60000 })
+      cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
         .should('be.visible')
         .click();
 

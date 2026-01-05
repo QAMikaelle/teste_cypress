@@ -70,7 +70,8 @@ describe("Teste - Login", () => {
         cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
             .should('be.visible')
             .click();
-
+        
+        //Clica em nome A/Z
         cy.get('[ng-model="$parent.order"]').click()
         cy.wait(1000)
         
@@ -80,6 +81,7 @@ describe("Teste - Login", () => {
             .click({ force: true });
         cy.wait(3000)
 
+        //Clica em nome A/z
         cy.get('[ng-model="$parent.order"]').click()
         cy.wait(1000)
 
