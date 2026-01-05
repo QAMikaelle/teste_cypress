@@ -29,15 +29,10 @@ describe("Teste - Login", () => {
       cy.get('[data-nodeid="1"] > .tree-icons > .icon-add').click(); 
 
       // Preencher nome da categoria
-      cy.get('span[title="Adicionar categoria"]').click()
-
-      cy.get('input[placeholder="Nova categoria"]:visible')
-        .should('be.visible')
-        .clear()
-        .type('Categoria Automação')
-
-
-
+      cy.get('input[placeholder="Nova categoria"]')
+      .should('be.visible')
+      .clear()
+      .type('Categoria Automação'); 
 
       // Salvar categoria
       cy.contains('button', 'Salvar').click();

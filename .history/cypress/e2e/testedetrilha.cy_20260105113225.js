@@ -8,43 +8,40 @@ Cypress.on('uncaught:exception', (err) => {
 
 describe("Teste - Login", () => {
   beforeEach(() => {
-        //Entra na página de login
-        cy.visit("https://www.hml.lector.live/lector_suporte/showcase/2257");
-        cy.contains("button", "Entrar").click();
+    //Entra na página de login
+    cy.visit("https://www.hml.lector.live/lector_suporte/showcase/2257");
+    cy.contains("button", "Entrar").click();
     
     //Faz login
-        cy.get('[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine').type("qualidade@lectortec.com.br");
-        cy.get("#login_password_navbar").type("c8d593QGXOkjRjC");
-        cy.get(".popup").contains("button", "Entrar").click();
+    cy.get('[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine').type("qualidade@lectortec.com.br");
+    cy.get("#login_password_navbar").type("c8d593QGXOkjRjC");
+    cy.get(".popup").contains("button", "Entrar").click();
   });
 
   context("Teste Categoria", () => {
+  it("Criando uma categoria", () => {
 
-    it("Nova categoria", () => {
-
-      //Abrir menu de trilhas
-      cy.get('[title="Trilhas"] > .sideitem').click();
-
-      // Clicar em adicionar categoria
-      cy.get('[data-nodeid="1"] > .tree-icons > .icon-add').click(); 
-
-      // Preencher nome da categoria
-      cy.get('span[title="Adicionar categoria"]').click()
-
-      cy.get('input[placeholder="Nova categoria"]:visible')
+    //Abrir menu de trilhas
+    cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
         .should('be.visible')
-        .clear()
-        .type('Categoria Automação')
+        .click();
 
+    // Clicar em adicionar categoria
+    cy.get('[data-nodeid="1"] > .tree-icons > .icon-add').click(); 
 
+    // Preencher nome da categoria
+    cy.get('input[placeholder="Nova categoria"]')
+    .should('be.visible')
+    .clear()
+    .type('Categoria Automação'); 
 
+    // Salvar categoria
+    cy.contains('button', 'Salvar').click();
 
-      // Salvar categoria
-      cy.contains('button', 'Salvar').click();
-
-      // Validar criação da categoria
-      cy.contains('Categoria Automação').should('be.visible'); // Validar criação
+    // Validar criação da categoria
+    cy.contains('Categoria Automação').should('be.visible'); // Validar criação
 });
+
 it("Criando uma trilha", () => {
 
     //Criar trilha
