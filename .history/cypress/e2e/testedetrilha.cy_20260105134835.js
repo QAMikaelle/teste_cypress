@@ -42,7 +42,7 @@ describe("Teste - Login", () => {
       cy.get('[switch="modal.createCategory"] > .modal > :nth-child(2) > .modal-form > .end > .btn-swipe-accent').click();
 
       // Validar criação da categoria
-      cy.contains('Categoria 05/01').should('be.visible'); 
+      cy.contains('Categoria Automação').should('be.visible'); // Validar criação
 });
 it("Criando uma trilha", () => {
 

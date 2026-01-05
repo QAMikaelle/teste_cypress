@@ -30,19 +30,21 @@ describe("Teste - Login", () => {
 
       // Preencher nome da categoria
       cy.get('input[placeholder="Nova categoria"]', { timeout: 60000 })
-        .filter(':visible')
-        .first()
-        .should('not.be.disabled')
-        .focus()
-        .clear({ force: true })
-        .type('Categoria 05/01', { delay: 30, force: true })
-        .should('have.value', 'Categoria 05/01');
+  .filter(':visible')
+  .first()
+  .should('not.be.disabled')
+  .focus()
+  .clear({ force: true })
+  .type('0Categoria Aut', { delay: 30, force: true })
+  .should('have.value', '0Categoria Aut');
+
+
 
       // Salvar categoria
-      cy.get('[switch="modal.createCategory"] > .modal > :nth-child(2) > .modal-form > .end > .btn-swipe-accent').click();
+      cy.contains('button', 'Salvar').click();
 
       // Validar criação da categoria
-      cy.contains('Categoria 05/01').should('be.visible'); 
+      cy.contains('Categoria Automação').should('be.visible'); // Validar criação
 });
 it("Criando uma trilha", () => {
 

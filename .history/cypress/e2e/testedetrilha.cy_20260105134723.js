@@ -38,11 +38,13 @@ describe("Teste - Login", () => {
         .type('Categoria 05/01', { delay: 30, force: true })
         .should('have.value', 'Categoria 05/01');
 
+
+
       // Salvar categoria
-      cy.get('[switch="modal.createCategory"] > .modal > :nth-child(2) > .modal-form > .end > .btn-swipe-accent').click();
+      cy.contains('button', 'Salvar').click();
 
       // Validar criação da categoria
-      cy.contains('Categoria 05/01').should('be.visible'); 
+      cy.contains('Categoria Automação').should('be.visible'); // Validar criação
 });
 it("Criando uma trilha", () => {
 
