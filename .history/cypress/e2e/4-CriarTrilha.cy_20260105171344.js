@@ -40,7 +40,6 @@ describe("Teste - Login", () => {
   .type('Trilha 05/01', { delay: 30, force: true })
   .should('have.value', 'Trilha 05/01');
 
-  //adicionado já pronto o teste de capa
 
      //Tradicional
       cy.get('label.thumb-placeholder[aspect="square"] input[type="file"]').selectFile('cypress/fixtures/images6.png', { force: true });
@@ -61,6 +60,8 @@ cy.wait(2000)
       cy.wait(6000);                                                     // Aguarda alguns segudos para ajustar a imagem
       cy.get('button[ng-click="cropper.save()"]').click();               // Confirma em confirmar para salvar a imagem
 cy.wait(2000)
+
+
 
     
     cy.get('[min-grade=""] > .input-number > div > .icon-pointer-up').click(); 
