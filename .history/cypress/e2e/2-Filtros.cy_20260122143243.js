@@ -95,18 +95,47 @@ describe("Teste - Login", () => {
         cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
             .should('be.visible')
             .click();
-
-        cy.get('[ng-model="$parent.order"]').click()
+        
+        //Clica em Cards
+        cy.get('.title-bar > .filter').click()
         cy.wait(1000)
         
         //Miniaturas
-        cy.get(':nth-child(1) > .btn-square').click()
+        cy.get('.open > .ui-select-choices > :nth-child(3)', { timeout: 60000 })
+            .should('be.visible')
+            .click();
+        cy.wait(12000)
 
-        //Miniaturas pequenas
-        cy.get(':nth-child(2) > .btn-square').click()
+      //Clica em Cards
+        cy.get('.title-bar > .filter').click()
+        cy.wait(2000)
 
-        //Lista
-        cy.get(':nth-child(3) > .btn-square').click()
+        //somente capa
+        cy.get('.open > .ui-select-choices > :nth-child(2)', { timeout: 60000 })
+            .should('be.visible')
+            .click();
+        cy.wait(12000)
+
+        //Clica em Cards
+        cy.get('.title-bar > .filter').click()
+        cy.wait(2000)
+
+        //cartoes
+        cy.get('.open > .ui-select-choices > :nth-child(1)', { timeout: 60000 })
+            .should('be.visible')
+            .click();
+        cy.wait(12000)
+        
+        //Clica em Cards
+        cy.get('.title-bar > .filter').click()
+        cy.wait(2000)
+
+        //cartoes
+        cy.get('.open > .ui-select-choices > :nth-child(4)', { timeout: 60000 })
+            .should('be.visible')
+            .click();
+        cy.wait(60000)
+
     });
     });
 });

@@ -9,14 +9,14 @@ Cypress.on('uncaught:exception', (err) => {
 describe("Teste - Login", () => {
     beforeEach(() => {
         //Entra na página de login
-            cy.visit("https://www.hml.lector.live/lector_suporte/showcase/2257");
-            cy.contains("button", "Entrar").click();
+        cy.visit("https://www.hml.lector.live/lector_suporte/showcase/2257");
+        cy.contains("button", "Entrar").click();
     
-        //Faz login
-            cy.get('[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine').type("qualidade@lectortec.com.br");
-            cy.get("#login_password_navbar").type("c8d593QGXOkjRjC");
-            cy.get(".popup").contains("button", "Entrar").click();
-        });
+    //Faz login
+        cy.get('[style="z-index: 26;"] > :nth-child(1) > :nth-child(1) > .popup > :nth-child(1) > .ng-pristine').type("qualidade@lectortec.com.br");
+        cy.get("#login_password_navbar").type("c8d593QGXOkjRjC");
+        cy.get(".popup").contains("button", "Entrar").click();
+    });
 
     context("Criar Trilha", () => {
 
@@ -84,7 +84,7 @@ cy.wait(2000)
      cy.get('.open > .ui-select-choices > :nth-child(2)').click(); //escolher conteúdo
     //TEM QUE CLICAR PRA ELE ESCREVER O NOME
     cy.get('[model="currentContent.evaluation"] > .multiselect > .border > .ui-select-match > .btn-default').type("teste"); //digitar nome da avaliação
-    cy.wait(10000); //espera para carregar o documento
+    cy.wait(1000); //espera para carregar o documento
     cy.get(".start > .btn-swipe-accent").click(); //adicionar documento
 
     //Adicionar documento
@@ -92,8 +92,8 @@ cy.wait(2000)
      cy.get('.pv-5 > .w-100').click(); //selecionar conteúdo
      cy.get('.open > .ui-select-choices > :nth-child(3)').click(); //escolher conteúdo
     //TEM QUE CLICAR PRA ELE ESCREVER O NOME
-    cy.get('[model="currentContent.document"] > .multiselect > .border > .ui-select-search').type("teste"); //digitar nome do documento
-    cy.wait(10000); //espera para carregar o documento
+    cy.get('[model="currentContent.evaluation"] > .multiselect > .border > .ui-select-match > .btn-default').type("teste"); //digitar nome do documento
+    cy.wait(1000); //espera para carregar o documento
     cy.get(".start > .btn-swipe-accent").click(); //adicionar documento
 
     //Adicionar scorm
@@ -101,24 +101,19 @@ cy.wait(2000)
      cy.get('.pv-5 > .w-100').click(); //selecionar conteúdo
      cy.get('.open > .ui-select-choices > :nth-child(4)').click(); //escolher conteúdo
     //TEM QUE CLICAR PRA ELE ESCREVER O NOME
-    cy.get('[ng-if="currentContent.type == \'SCORM\'"] > .ng-isolate-scope > .multiselect > .border > .ui-select-match > .btn-default').type("teste"); //digitar nome do scorm
-    cy.wait(10000); //espera para carregar o documento
+    cy.get('[model="currentContent.evaluation"] > .multiselect > .border > .ui-select-match > .btn-default').type("teste"); //digitar nome do scorm
+    cy.wait(1000); //espera para carregar o documento
     cy.get(".start > .btn-swipe-accent").click(); //adicionar documento
 
     //Criar turma
-    cy.get('[trails=""] > .tabs > .ng-scope').click(); //selecionar turma
+    cy.get(".tabs > .ng-scope").click(); //selecionar turma
     cy.get(".gap > .btn-swipe-accent").click(); //botão de criar turma
-    cy.wait(10000); //espera para carregar a tela de criar turma
+    cy.wait(1000); //espera para carregar a tela de criar turma
     //ESCREVER O NOME DA TURMA
         cy.get(".class-price > :nth-child(1) > .icon-checkbox").click(); //selecionar turma gratuita
         cy.get(".column > :nth-child(1) > .icon-checkbox").click(); //aprovação do gestor
-        cy.get('#currentClassPrice').type("1"); //valor da turma
-        cy.get('.editing-class > :nth-child(1) > .content-box-footer > .btn-swipe-accent').click(); //salvar turma
-        cy.get('.center > .icon-copy').click(); //copiar turma
-        cy.get('.class-price > :nth-child(1) > .icon-checkbox').click(); //selecionar turma gratuita
-        cy.get('.editing-class > :nth-child(1) > .content-box-footer > .btn-swipe-accent').click(); //salvar turma
-
-        cy.get('.editing-class > :nth-child(1) > .content-box-footer > .btn-swipe-accent').click(); //salvar trilha
+        cy.get(".editing-class > :nth-child(1) > .content-box-footer > .btn-swipe-accent").click(); //salvar turma
+        cy.get(".content-box-footer > .flex > .btn-swipe-accent").click(); //salvar trilha
         cy.get('[ng-show="modal.saveTrailVersion"] > .modal > :nth-child(3) > .checkbox > .icon-checkbox').click(); //selecionar a opção de salvar versão
         cy.get('[ng-show="modal.saveTrailVersion"] > .modal > .end > .ml-10').click(); //clicar no botão de salvar
         });

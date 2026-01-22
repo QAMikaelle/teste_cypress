@@ -1,5 +1,3 @@
-/* This JavaScript script is a test script written using Cypress for end-to-end testing. Here's a
-breakdown of what the script is doing: */
 /* This is a test script written in JavaScript using Cypress for end-to-end testing. Here's a breakdown
 of what the script is doing: */
 /// <reference types="cypress" />

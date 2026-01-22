@@ -19,7 +19,7 @@ describe("Teste - Login", () => {
   });
 
   context("Teste de capa", () => {
-    it("Capa/Banner/Tradicional", () => {
+    it("Capa/Baner/Tradicional", () => {
 
       // Clicando na aba Trilhas
       cy.get('[title="Trilhas"] > .sideitem', { timeout: 60000 })
