@@ -53,11 +53,11 @@ describe("Teste - Login", () => {
     cy.get('.title-bar > .multiselect > .ng-pristine').type("Teste1");
 
     //Exportar lista de cupons
-    cy.get('.buttons-copy').click(); //Clica em copiar
-    cy.get('.buttons-csv').click(); //Clica em CSV
-    cy.get('.buttons-pdf').click(); //Clica em PDF
-    cy.get('.icon-file-xls').click(); //Clica em Excel
-    cy.get('.buttons-print').click(); //Clica em imprimir
+    cy.get('.buttons-copy').click();
+    cy.get('.buttons-csv').click();
+    cy.get('.buttons-pdf').click();
+    cy.get('.icon-file-xls').click();
+    cy.get('.buttons-print').click();
 
     
     //Criar cupom

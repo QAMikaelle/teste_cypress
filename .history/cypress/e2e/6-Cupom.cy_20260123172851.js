@@ -53,11 +53,11 @@ describe("Teste - Login", () => {
     cy.get('.title-bar > .multiselect > .ng-pristine').type("Teste1");
 
     //Exportar lista de cupons
-    cy.get('.buttons-copy').click(); //Clica em copiar
-    cy.get('.buttons-csv').click(); //Clica em CSV
-    cy.get('.buttons-pdf').click(); //Clica em PDF
-    cy.get('.icon-file-xls').click(); //Clica em Excel
-    cy.get('.buttons-print').click(); //Clica em imprimir
+    cy.get('.buttons-copy').click();
+    cy.get('.buttons-csv').click();
+    cy.get('.buttons-pdf').click();
+    cy.get('.icon-file-xls').click();
+    cy.get('.buttons-print').click();
 
     
     //Criar cupom
@@ -67,11 +67,8 @@ describe("Teste - Login", () => {
     cy.get(':nth-child(2) > .number-with-unit > input.ng-pristine').type('2'); //Valor do cupom
     cy.get('.column > :nth-child(3) > .w-100').type('CupomTeste2'); //Código do cupom
     cy.get(':nth-child(7) > .number-with-unit > .ng-pristine').type('5'); //Compra mínima
-    cy.get(':nth-child(8) > .ng-isolate-scope > .multiselect > .border > :nth-child(1) > .ui-select-search').type('Teste1'); //Selecionar treinamento
-    cy.get('#ui-select-choices-row-36-0').click(); //Clica no treinamento selecionado
-    cy.get(':nth-child(9) > .ng-isolate-scope > .multiselect > .border > :nth-child(1) > .ui-select-search').type('trilha'); //Selecionar trilha
-    cy.get('#ui-select-choices-row-37-0 > .ui-select-choices-row-inner > .ng-binding').click(); //Clica na trilha selecionada
-    cy.get('[switch="modal.coupons"] > .modal > :nth-child(2) > .modal-form > .end > .btn-swipe-accent').click(); //Clica em salvar cupom
+    cy.get(':nth-child(8) > .ng-isolate-scope > .multiselect > .border > :nth-child(1) > .ui-select-search').type('Teste1'); //Selecionar trilha
+    cy.get('#ui-select-choices-row-36-0').click(); //Clica na trilha selecionada
 
     });
 
