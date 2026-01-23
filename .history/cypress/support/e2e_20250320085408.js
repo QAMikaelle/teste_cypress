@@ -15,16 +15,3 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-Cypress.on('uncaught:exception', (err) => {
-  // Ignora erro conhecido da aplicação
-  if (err.message?.includes("Cannot read properties of null (reading 'remove')")) {
-    return false
-  }
-
-  // Mantém seu filtro atual
-  if (err.message?.includes('unselectable')) {
-    return false
-  }
-
-  // Qualquer outro erro continua falhando o teste (o ideal)
-})

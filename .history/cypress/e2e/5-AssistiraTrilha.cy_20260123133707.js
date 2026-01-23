@@ -55,41 +55,11 @@ describe("Teste - Login", () => {
 
     //Realizar a avaliação da trilha
     cy.get(':nth-child(2) > .overflow-x > .stage-content-list > tbody > :nth-child(2) > :nth-child(6) > .pv-5 > .btn-swipe-accent').click(); //Acessar avaliação da trilha
-    
-    //Iniciar avaliação da trilha
-    cy.get('.alternatives-grid-box:visible', { timeout: 20000 }).should('be.visible');
-
-    cy.get('.alternatives-grid-box:visible')
-    .find('.checkbox .icon-checkbox, .checkbox .icon-radio')
-    .filter(':visible')
-    .first()
-    .scrollIntoView()
-    .click({ force: true });
-
+    cy.get('.alternatives-grid-box > :nth-child(1) > :nth-child(1) > .checkbox > .icon-checkbox').click(); //Responder pergunta 1
     cy.get('[ng-click="evaluationViewerService.nextQuestion()"]').click(); //Próxima pergunta
-
-    //Responder segunda pergunta da avaliação da trilha
-    cy.get('.alternatives-grid-box:visible', { timeout: 20000 }).should('be.visible');
-
-    cy.get('.alternatives-grid-box:visible')
-    .find('.checkbox .icon-checkbox, .checkbox .icon-radio')
-    .filter(':visible')
-    .first()
-    .scrollIntoView()
-    .click({ force: true });
-
+    cy.get('.alternatives-grid-box > :nth-child(1) > :nth-child(1) > .checkbox > .icon-radio').click(); //Responder pergunta 2
     cy.get('[ng-click="evaluationViewerService.nextQuestion()"]').click(); //Próxima pergunta
-
-    // Terceira pergunta da avaliação da trilha
-    cy.get('.alternatives-grid-box:visible', { timeout: 20000 }).should('be.visible');
-
-    cy.get('.alternatives-grid-box:visible')
-    .find('.checkbox .icon-checkbox, .checkbox .icon-radio')
-    .filter(':visible')
-    .first()
-    .scrollIntoView()
-    .click({ force: true });
-
+    cy.get('.alternatives-grid-box > :nth-child(1) > :nth-child(1) > .checkbox > .icon-radio').click(); //Responder pergunta 3
     cy.get('.evaluation-actions > .end > .btn-swipe-accent').click(); //Finalizar avaliação da trilha
     cy.get('[switch="service.modalSendAnswers"] > .modal > :nth-child(2) > .modal-form > .end > .btn-swipe-accent').click(); //Confirmar finalização da avaliação da trilha
     cy.wait(5000);
@@ -102,11 +72,6 @@ describe("Teste - Login", () => {
 
     //Visualizar scorm da trilha
     cy.get(':nth-child(3) > .overflow-x > .stage-content-list > tbody > :nth-child(2) > :nth-child(6) > .pv-5 > .btn-swipe-accent').click(); //Acessar vídeo da trilha
-    cy.get('.hide-resource').click(); //Fechar scorm da trilha
-
-    //Finalizar trilha
-    cy.get('.default-gap > .btn-swipe-accent > .ng-binding').click(); //Finalizar trilha
-
 
     });
   }); 

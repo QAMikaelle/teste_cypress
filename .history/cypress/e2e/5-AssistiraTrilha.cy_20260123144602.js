@@ -102,11 +102,6 @@ describe("Teste - Login", () => {
 
     //Visualizar scorm da trilha
     cy.get(':nth-child(3) > .overflow-x > .stage-content-list > tbody > :nth-child(2) > :nth-child(6) > .pv-5 > .btn-swipe-accent').click(); //Acessar vídeo da trilha
-    cy.get('.hide-resource').click(); //Fechar scorm da trilha
-
-    //Finalizar trilha
-    cy.get('.default-gap > .btn-swipe-accent > .ng-binding').click(); //Finalizar trilha
-
 
     });
   }); 
